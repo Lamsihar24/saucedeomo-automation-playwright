@@ -9,7 +9,7 @@ This project contains automated UI tests for the [SauceDemo](https://www.saucede
 ###. **Clone repository**
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Lamsihar24/saucedeomo-automation-playwright.git
 cd saucedeomo-automation-playwright
 ```
 
