@@ -14,14 +14,16 @@ cd saucedeomo-automation-playwright
 ```
 
 ### Create and activate virtual environment
+```
 python -m venv venv
 source venv/bin/activate       # Linux/Mac
 venv\Scripts\activate          # Windows
 Install dependencies
-
+```
+```
 pip install -r requirements.txt
 Install Playwright browsers
-
+```
 playwright install
 
 ### 🚀 Running Tests
