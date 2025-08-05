@@ -4,24 +4,6 @@ This project contains automated UI tests for the [SauceDemo](https://www.saucede
 
 ---
 
-## 📂 Project Structure
-saucedeomo-automation-playwright/
-├── pages/ # Page Object Model classes
-│ └── auth/
-│ ├── login/
-│ │ └── login_page.py
-│ └── logout/
-│ └── logout_page.py
-├── tests/ # Test cases organized by feature
-│ └── auth/
-│ └── logout/
-│ └── test_logout.py
-├── conftest.py # pytest fixtures (e.g. login fixture)
-├── pytest.ini # pytest configuration
-├── requirements.txt # Python dependencies
-└── README.md
----
-
 ## ⚙️ Setup
 
 ###. **Clone repository**
