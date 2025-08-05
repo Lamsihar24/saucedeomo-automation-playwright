@@ -1,8 +1,9 @@
+import pytest
 from playwright.sync_api import sync_playwright
 from pages.auth.login.login_page import LoginPage
 import time
 
-def test_login():
+def test_login_success():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
@@ -30,9 +31,29 @@ def test_login():
         assert first_item_name == "Sauce Labs Backpack"
 
         time.sleep(5)
-        browser.close()
-
-        
+        browser.close()  
 
 if __name__ == "__main__":
     test_login()
+
+@pytest.mark.login
+def test_login_invalid_username(browser_page):
+    # login dengan usernaje yang salah
+    login_page = LoginPage(browser_page)
+    login_page.navigate()
+    login_page.login("wrong_user", "secret_sauce")
+    error_message = browser_page.locator("[data-test=error]")
+    assert error_message.is_visible()
+    assert "Epic sadface: Username and password do not match any user in this service" in error_message.inner_text()
+    time.sleep(5)
+
+@pytest.mark.login
+def test_login_invalid_password(browser_page):
+    # Login dengan password yang salah
+    login_page = LoginPage(browser_page)
+    login_page.navigate()
+    login_page.login("standard_user", "wrong_password")
+    error_message = browser_page.locator("[data-test=error]")
+    assert error_message.is_visible()
+    assert "Epic sadface: Username and password do not match any user in this service" in error_message.inner_text()
+    time.sleep(5)
